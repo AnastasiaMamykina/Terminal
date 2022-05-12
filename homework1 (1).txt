@@ -1,0 +1,106 @@
+Terminal Nastassia Mamykina
+
+1) Посмотреть где я - pwd
+
+2) Создать папку - mkdir Qa-homework
+
+3) Зайти в папку - cd 
+
+4) Создать 3 папки - mkdir folder_1 folder_2 folder_3
+
+5) Зайти в любую папку -  cd folder_1
+
+6) Создать 5 файлов (3 txt, 2 json) - touch file_1.txt file_2.txt file_3.txt file_4.json file_5.json
+
+7) Создать 3 папки - mkdir test_1 test_2 test_3
+
+8) Вывести список содержимого папки - ls -la
+
+9) + Открыть любой txt файл
+10) + написать туда что-нибудь, любой текст.
+11) + сохранить и выйти.                                                                    cat>> имя файла потом нажимаем i и входим в режим редактирования. После редактирования нажимаем enter для сохранения и ctrl+c для закрытия режима редактирования
+
+12) Выйти из папки на уровень выше - cd ../
+
+13) переместить любые 2 файла, которые вы создали, в любую другую папку - mv /Users/lyalechka/Qa-homework/folder_1/{file_3.txt,file_4.json} /Users/lyalechka/Qa-homework/folder_3/
+
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку - cp /Users/lyalechka/Qa-homework/folder_1/{file_1.txt,file_5.json} /Users/lyalechka/Qa-homework/folder_3/
+
+15) Найти файл по имени -  find /Users/lyalechka/Qa-homework -iname file_5.json
+
+16) просмотреть содержимое в реальном времени (команда grep)  tail -F /Users/lyalechka/Qa-homework/folder_1/file_1.txt
+(открыть сам файл и вводить текст с сохранением и смотреть, что изменения отобразятся в терминале - для того, чтобы остановить команду нажать ctrl+c)
+-f - обновлять информацию по мере появления новых строк в файле;
+
+17) вывести несколько первых строк из текстового файла:
+head file_1.txt  (зашла в folder_1 предварительно) выводит первые 10 строк
+если надо другое количество, то head -n 3 file_1.txt
+вывелось 3 строки верхние
+
+18) вывести несколько последних строк из текстового файла:
+tail -n 2 file_1.txt
+
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает:
+При запуске less не читает весь файл, что приводит к гораздо более быстрому времени загрузки по сравнению с текстовыми редакторами, такими как vim или nano. Less - утилита командной строки, которая отображает содержимое файла или вывод команды, по одной странице за раз. Команда less в основном используется для открытия больших файлов .
+
+less /Users/lyalechka/Qa-homework/folder_3/file_1.txt
+
+Чтобы выйти less и вернуться в командную строку, нажмите q 
+
+20) вывести дату и время: date
+
+Задание *
+1) Отправить http запрос на сервер:
+curl http://162.55.220.72:5005/terminal-hw-request
+
+{"Intro":"Hello!! This is your the first response from server","Tasks":{"Task_1":"Send the next URL in terminal: http://162.55.220.72:5005/get_method?name=(set_your_String)&age=(set_your_number)","result":["Your_String","Your_number"]}}
+
+Air-Anastasia:~ lyalechka$ curl -X POST http://162.55.220.72:5005/get_method?name="Anastasia" & age="31";
+[1] 56680
+Air-Anastasia:~ lyalechka$ "Natalia MOLODEC"
+
+
+
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+ В текстовом файле написать следующее:
+
+#!/bin/bash
+
+cd /Users/lyalechka/Qa-homework/
+mkdir folder_4 folder_5 folder_6
+cd folder_4
+touch file_6.txt file_7.txt file_8.txt file_9.json file_10.json
+mkdir test_4 test_5 test_6
+ls -la
+mv /Users/lyalechka/Qa-homework/folder_4/{file_6.txt,file_9.json} /Users/lyalechka/Qa-homework/folder_5/
+
+сохранить как script.txt
+
+зайти в терминал
+ввести
+chmod a+x script.txt
+ после запустить скрипт
+./script.txt
+
+вывод:
+total 0
+drwxr-xr-x  10 lyalechka  staff  320 16 апр 13:06 .
+drwxr-xr-x   9 lyalechka  staff  288 16 апр 13:06 ..
+-rw-r--r--   1 lyalechka  staff    0 16 апр 13:06 file_10.json
+-rw-r--r--   1 lyalechka  staff    0 16 апр 13:06 file_6.txt
+-rw-r--r--   1 lyalechka  staff    0 16 апр 13:06 file_7.txt
+-rw-r--r--   1 lyalechka  staff    0 16 апр 13:06 file_8.txt
+-rw-r--r--   1 lyalechka  staff    0 16 апр 13:06 file_9.json
+drwxr-xr-x   2 lyalechka  staff   64 16 апр 13:06 test_4
+drwxr-xr-x   2 lyalechka  staff   64 16 апр 13:06 test_5
+drwxr-xr-x   2 lyalechka  staff   64 16 апр 13:06 test_6
+
+
+
+
+
+
+
+
+
+
